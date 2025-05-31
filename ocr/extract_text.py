@@ -1,10 +1,10 @@
-# ocr/extract_text.py
-
 import pytesseract
 from pdf2image import convert_from_path
 from PIL import Image
 import cv2
 import os
+
+# pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 def extract_text_from_image(img_path):
     image = cv2.imread(img_path)
@@ -15,8 +15,8 @@ def extract_text_from_image(img_path):
 def extract_text_from_pdf(pdf_path):
     pages = convert_from_path(pdf_path)
     text = ""
-    for page in pages:
-        temp_path = "temp_page.jpg"
+    for i, page in enumerate(pages):
+        temp_path = f"temp_page_{i}.jpg"
         page.save(temp_path, "JPEG")
         text += extract_text_from_image(temp_path) + "\n"
         os.remove(temp_path)

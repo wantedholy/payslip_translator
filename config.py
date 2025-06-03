@@ -1,7 +1,7 @@
 import os
 
 # Your Google Cloud API Key
-API_KEY = "AIzaSyDJSdM-u47flu1t2rH_9ugwWUaHnTjB_ds"
+API_KEY = "**your api key**"
 
 LANGUAGES = {
     "hi": "Hindi",
